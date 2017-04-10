@@ -51,6 +51,14 @@ def close_db(error):
 ################## views functions and commands here #####################
 
 @app.route('/')
+
+def index():
+    return render_template('index.html')
+
+if __name__ == 'main':
+    app.run()
+
+
 def show_entries():
     db = get_db()
     cur = db.execute('select title, text from entries order by id desc')
